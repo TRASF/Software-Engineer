@@ -14,7 +14,6 @@ async function callStudentWS(url, method, sentData = {}) {
     let aMethod;
     if (method == "insert") {
       aMethod = "POST";
-      Fv;
     } else if (method == "update") {
       aMethod = "PUT";
     } else if (method == "delete") {
@@ -121,7 +120,7 @@ selectBtnRef.addEventListener("click", () => {
   STU_ID = STU_IDTxtRef.value;
   callStudentWS("http://localhost:3000/student/" + STU_ID, "select").then(
     (data) => {
-      console.log(data);
+      console.log(data.data);
       if (data) {
         alert(data.message);
         STU_IDTxtRef.value = data.data.STU_ID;
