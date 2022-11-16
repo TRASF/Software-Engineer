@@ -14,6 +14,7 @@ async function callStudentWS(url, method, sentData = {}) {
     let aMethod;
     if (method == "insert") {
       aMethod = "POST";
+      Fv;
     } else if (method == "update") {
       aMethod = "PUT";
     } else if (method == "delete") {
