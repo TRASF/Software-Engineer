@@ -37,7 +37,7 @@ router.get("/students", function (req, res) {
 });
 
 // Retrieve student with id
-router.get("/student/:id", function (req, res) {
+router.get("/getstudent/:id", function (req, res) {
   let student_id = req.params.id;
 
   if (!student_id) {
@@ -61,7 +61,7 @@ router.get("/student/:id", function (req, res) {
 });
 
 // Add a new student
-router.post("/student", function (req, res) {
+router.post("/addstudent", function (req, res) {
   let student = req.body.student;
   console.log(student);
 
@@ -86,7 +86,7 @@ router.post("/student", function (req, res) {
 });
 
 //  Update student with id
-router.put("/student", function (req, res) {
+router.put("/updatestudent", function (req, res) {
   let student_id = req.body.student.STU_ID;
   let student = req.body.student;
 
@@ -112,7 +112,7 @@ router.put("/student", function (req, res) {
 });
 
 //  Delete student
-router.delete("/student", function (req, res) {
+router.delete("/deletestudent", function (req, res) {
   let student_id = req.body.student_id;
   console.log(student_id);
 
