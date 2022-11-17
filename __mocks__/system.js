@@ -16,7 +16,7 @@ async function testInsertion(STU_DATAS) {
         accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.parse(STU_DATAS),
+      body: JSON.stringify(STU_DATAS),
     });
     data = await response.json();
     return data;

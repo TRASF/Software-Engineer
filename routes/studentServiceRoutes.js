@@ -21,6 +21,7 @@ const dbConn = mysql.createConnection({
   user: process.env.DB_user,
   password: process.env.DB_pass,
   database: process.env.DB_name,
+  port: process.env.PORT,
 });
 
 // default route
