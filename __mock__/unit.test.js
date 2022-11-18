@@ -17,12 +17,12 @@ it("finds Student that ID = " + TEST_STU_ID[0], async () => {
   // expect(axious.get("/student")).toHaveBeenCalledTimes(1);
 });
 
-// it("Insert Students", async () => {
-//   const data = await unitTest.testInsertion(TEST_STU_DATAS);
-//   expect(data).toEqual({
-//     message: "New student has been created successfully.",
-//     error: false,
-//     data: Object.keys(TEST_STU_DATAS).length,
-//   });
-//   // expect(axious.post("/addstudent")).toHaveBeenCalledTimes(1);
-// });
+it("Insert Students", async () => {
+  const data = await unitTest.testInsertion(TEST_STU_DATAS);
+  expect(data).toEqual({
+    message: "New student has been created successfully.",
+    error: false,
+    data: Object.keys(TEST_STU_DATAS).length,
+  });
+  // expect(axious.post("/addstudent")).toHaveBeenCalledTimes(1);
+});
