@@ -1,7 +1,7 @@
 const express = require("express"),
   mysql = require("mysql2"), // https://www.npmjs.com/package/mysql2
   cors = require("cors"),
-  router = express.Router();
+  router = express.Router({ mergeParams: true });
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -21,7 +21,6 @@ const dbConn = mysql.createConnection({
   user: process.env.DB_user,
   password: process.env.DB_pass,
   database: process.env.DB_name,
-  port: process.env.PORT,
 });
 
 // default route
@@ -38,7 +37,7 @@ router.get("/students", function (req, res) {
 });
 
 // Retrieve student with id
-router.get("/getstudent/:id", function (req, res) {
+router.get("/student/:id", function (req, res) {
   let student_id = req.params.id;
 
   if (!student_id) {
@@ -62,7 +61,7 @@ router.get("/getstudent/:id", function (req, res) {
 });
 
 // Add a new student
-router.post("/addstudent", function (req, res) {
+router.post("/student", function (req, res) {
   let student = req.body.student;
   console.log(student);
 
@@ -87,7 +86,7 @@ router.post("/addstudent", function (req, res) {
 });
 
 //  Update student with id
-router.put("/updatestudent", function (req, res) {
+router.put("/student", function (req, res) {
   let student_id = req.body.student.STU_ID;
   let student = req.body.student;
 
@@ -113,7 +112,7 @@ router.put("/updatestudent", function (req, res) {
 });
 
 //  Delete student
-router.delete("/deletestudent", function (req, res) {
+router.delete("/student", function (req, res) {
   let student_id = req.body.student_id;
   console.log(student_id);
 

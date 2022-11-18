@@ -1,6 +1,6 @@
 async function testSelection(STU_ID) {
   try {
-    let response = await fetch("http://localhost:3000/getstudent/" + STU_ID);
+    let response = await fetch("http://localhost:3000/student/" + STU_ID);
     data = await response.json();
     return Object.values(data.data).toString();
   } catch (e) {
@@ -10,7 +10,7 @@ async function testSelection(STU_ID) {
 
 async function testInsertion(STU_DATAS) {
   try {
-    let response = await fetch("http://localhost:3000/addstudent/", {
+    let response = await fetch("http://localhost:3000/student", {
       method: "POST",
       headers: {
         accept: "application/json",

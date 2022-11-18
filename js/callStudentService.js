@@ -65,17 +65,15 @@ insertBtnRef.addEventListener("click", () => {
       STU_AGE: STU_AGE,
     },
   };
-  callStudentWS(
-    "http://localhost:3000/addstudent",
-    "insert",
-    student_data
-  ).then((data) => {
-    console.log(data);
-    if (data.data > 0) {
-      alert(data.message);
-      clearInput();
+  callStudentWS("http://localhost:3000/student", "insert", student_data).then(
+    (data) => {
+      console.log(data);
+      if (data.data > 0) {
+        alert(data.message);
+        clearInput();
+      }
     }
-  });
+  );
 });
 
 updateBtnRef.addEventListener("click", () => {
@@ -107,22 +105,20 @@ deleteBtnRef.addEventListener("click", () => {
   let student_data = {
     student_id: STU_ID,
   };
-  callStudentWS(
-    "http://localhost:3000/deletestudent",
-    "delete",
-    student_data
-  ).then((data) => {
-    console.log(data);
-    if (data.data > 0) {
-      alert(data.message);
-      clearInput();
+  callStudentWS("http://localhost:3000/student", "delete", student_data).then(
+    (data) => {
+      console.log(data);
+      if (data.data > 0) {
+        alert(data.message);
+        clearInput();
+      }
     }
-  });
+  );
 });
 
 selectBtnRef.addEventListener("click", () => {
   STU_ID = STU_IDTxtRef.value;
-  callStudentWS("http://localhost:3000/getstudent/" + STU_ID, "select").then(
+  callStudentWS("http://localhost:3000/student/" + STU_ID, "select").then(
     (data) => {
       console.log(data);
       if (data) {
