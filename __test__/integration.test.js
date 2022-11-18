@@ -5,11 +5,6 @@ const express = require("express"),
 
 app.use("/", router);
 
-test("Test: GET /", async () => {
-  const res = await request(app).get("/");
-  expect(res.body).toEqual({ error: true, message: "hello" });
-});
-
 describe("Test: Getting information of the first student in database with /stidents and /student/:id", () => {
   let firstStudent;
   test("Test GET all students via /students", async () => {
@@ -44,6 +39,12 @@ describe("Test: Getting information of the first student in database with /stide
         STU_FNAME: "Christopher",
         STU_LNAME: "Ellison",
         STU_AGE: 25,
+      },
+      {
+        STU_ID: 7,
+        STU_FNAME: "Akex",
+        STU_LNAME: "Break",
+        STU_AGE: 23,
       },
     ]);
     firstStudent = res.body.data[0];
